@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: wizarr
+  namespace: wizarr
+spec:
+  replicas: 1
+  serviceName: wizarr
+  selector:
+    matchLabels:
+      app: wizarr
+  template:
+    metadata:
+      labels:
+        app: wizarr
+    spec:
+      containers:
+        - name: wizarr
+          image: ghcr.io/wizarrrr/wizarr
+          env:
+            - name: wizarr_port
+              value: "5690"
+            - name: port
+              value: "5690"
+          ports:
+            - name: wizarr
+              containerPort: 5690
+              protocol: TCP
+          volumeMounts:
+            - name: wizarr
+              mountPath: /app/data
+
+  volumeClaimTemplates:
+    - metadata:
+        name: wizarr
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        storageClassName: "longhorn"
+        resources:
+          requests:
+            storage: 1Gi
