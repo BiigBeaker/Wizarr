@@ -28,7 +28,7 @@ spec:
               protocol: TCP
           volumeMounts:
             - name: wizarr
-              mountPath: /app/data
+              mountPath: /data/database
 
   volumeClaimTemplates:
     - metadata:
