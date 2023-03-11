@@ -24,6 +24,7 @@ spec:
               value: "5690"
           ports:
             - name: wizarr
+              containerPort: 5690
               protocol: TCP
           volumeMounts:
             - name: wizarr
