@@ -22,6 +22,8 @@ spec:
               value: "5690"
             - name: port
               value: "5690"
+            - name: TZ
+              value: "America/New_York"
           ports:
             - name: wizarr
               containerPort: 5690
