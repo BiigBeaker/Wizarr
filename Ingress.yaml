@@ -7,10 +7,6 @@ metadata:
     kubernetes.io/ingress.class: "traefik"
     traefik.ingress.kubernetes.io/backend-protocol: "HTTP"
 spec:
-  tls:
-  - hosts:
-    - wiz.promisedweb.com
-    secretName: wiz.promisedweb.com
   rules:
   - host: wiz.promisedweb.com
     http:
