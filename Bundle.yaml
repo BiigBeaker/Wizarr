@@ -22,7 +22,6 @@ metadata:
     kubernetes.io/ingress.class: "traefik"
     traefik.ingress.kubernetes.io/backend-protocol: "HTTP"
     cert-manager.io/cluster-issuer: "letsencrypt-staging"
-    traefik.http.routers.wizarr-rtr.rule: "Host(`wiz.promisedweb.com`)"
 spec:
   tls:
   - hosts:
@@ -67,7 +66,19 @@ spec:
             - name: TZ
               value: "America/New_York"
             - name: APP_URL
-              value: ""
+              value: "wiz.promisedweb.com"
+            - name: traefik.enable
+              value: "true"
+            - name: traefik.http.routers.wizarr-rtr.entrypoints
+              value: "https"
+            - name: traefik.http.routers.wizarr-rtr.rule
+              value: "Host(`wiz.promisedweb.com`)"
+            - name: traefik.http.routers.wizarr-rtr.tls
+              value: "true"
+            - name: APP_URL
+              value: "wiz.promisedweb.com"
+            - name: traefik.http.services.wizarr-svc.loadbalancer.server.port
+              value: "5690"
           ports:
             - name: wizarr
               containerPort: 5690
