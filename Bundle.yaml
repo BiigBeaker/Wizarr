@@ -75,8 +75,6 @@ spec:
               value: "Host(`wiz.promisedweb.com`)"
             - name: traefik.http.routers.wizarr-rtr.tls
               value: "true"
-            - name: APP_URL
-              value: "wiz.promisedweb.com"
             - name: traefik.http.services.wizarr-svc.loadbalancer.server.port
               value: "5690"
           ports:
