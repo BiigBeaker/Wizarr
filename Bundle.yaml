@@ -65,7 +65,7 @@ spec:
               value: "5690"
             - name: TZ
               value: "America/New_York"
-            - name: app_url
+            - name: APP_URL
               value: "wiz.promisedweb.com"
           ports:
             - name: wizarr
