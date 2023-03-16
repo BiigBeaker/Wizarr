@@ -22,6 +22,7 @@ metadata:
     kubernetes.io/ingress.class: "traefik"
     traefik.ingress.kubernetes.io/backend-protocol: "HTTP"
     cert-manager.io/cluster-issuer: "letsencrypt-staging"
+    traefik.http.routers.wizarr-rtr.rule: "Host(`wiz.promisedweb.com`)"
 spec:
   tls:
   - hosts:
@@ -66,7 +67,7 @@ spec:
             - name: TZ
               value: "America/New_York"
             - name: APP_URL
-              value: "wiz.promisedweb.com"
+              value: ""
           ports:
             - name: wizarr
               containerPort: 5690
